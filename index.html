@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Client-Side Fetch</title>
+</head>
+<body>
+  <h1>Fetch Data from Server</h1>
+  <button id="fetchDataButton">Fetch Data</button>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('fetchDataButton').addEventListener('click', () => {
+      // Fetch data from the server-side route
+      fetch('http://localhost:3000/fetch-data')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('result').textContent = data;
+          console.log('Fetched data:', data);
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  </script>
+</body>
+</html>
